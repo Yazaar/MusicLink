@@ -1,0 +1,1 @@
+web: gunicorn webhandler:app -c webconfig.py -k geventwebsocket.gunicorn.workers.GeventWebSocketWorker -w 1
