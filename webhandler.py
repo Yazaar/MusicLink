@@ -10,4 +10,4 @@ def root():
 
 @sio.on('message')
 def on_message(data=''):
-    sio.emit('message', 'hello', room=request.sio)
+    sio.emit('message', 'hello', room=request.sid)
