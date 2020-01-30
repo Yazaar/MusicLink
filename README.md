@@ -1,2 +1,0 @@
-# heroku
-Heroku applicaiton
