@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_socketio import SocketIO
 
 app = Flask(__name__)
@@ -6,7 +6,7 @@ sio = SocketIO(app)
 
 @app.route('/')
 def root():
-    return 'welcome'
+    return render_template('index.html')
 
 @sio.on('message')
 def on_message(data=''):
