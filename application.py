@@ -10,4 +10,4 @@ def index():
 
 @socketio.on('message')
 def on_message(data):
-    socketio.emit('ok...', room=request.sid)
+    socketio.emit('message', 'ok...', room=request.sid)
