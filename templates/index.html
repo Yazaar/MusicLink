@@ -7,7 +7,12 @@
     <title>index</title>
 </head>
 <body>
-    <h1>Empty website...</h1>
+    <h1>Status:</h1>
+    <h4>{{statusMessage}}</h4>
+    <form action="/setStatus" method="POST">
+        <input name="status" type="text">
+        <button type="submit">Update status</button>
+    </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     <script src="{{ url_for('static',filename='js/main.js') }}"></script>
 </body>
