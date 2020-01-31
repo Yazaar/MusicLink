@@ -25,5 +25,3 @@ def setStatus():
 @sio.on('message')
 def on_message(data=''):
     sio.emit('message', 'hello', room=request.sid)
-
-sio.run(app, port=5000)
