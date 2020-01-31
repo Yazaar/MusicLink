@@ -1,4 +1,4 @@
-s = io(window.location.origin, {transports: ['websocket']});
+var s = io(window.location.origin, {transports: ['websocket']});
 
 s.on('connect', function () {
     console.log('connected!');
