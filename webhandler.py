@@ -9,6 +9,6 @@ sio = SocketIO(app)
 def root():
     return render_template('index.html')
 
-@sio.on('message')
+@sio.on('ping')
 def on_message(data=''):
-    sio.emit('message', 'hello', room=request.sid)
+    sio.emit('pong', 'pong', room=request.sid)
