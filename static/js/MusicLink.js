@@ -16,7 +16,6 @@
 
     var params = new URLSearchParams(window.location.search);
 
-
     if (!params.get('previewmode')) {
         var s = io(window.location.origin);
     
@@ -42,9 +41,14 @@
                 currentAuthor = data.author;
                 refreshTicker(author);
             }
-            if (data.thumbnailUrl && data.currentThumbnail !== currentThumbnail) {
+            if (data.YTthumbnail && data.YTthumbnail !== currentThumbnail) {
+                changes = true;
+                thumbnail.src = 'https://img.youtube.com/vi/' + data.YTthumbnail + '/default.jpg';
+                currentThumbnail = data.YTthumbnail;
+            } else if (data.thumbnailUrl && data.thumbnailUrl !== currentThumbnail) {
                 changes = true;
                 thumbnail.src = data.thumbnailUrl;
+                currentThumbnail = data.thumbnailUrl;
             }
             if (changes === true) {
                 time.style.background = generateRGB();
