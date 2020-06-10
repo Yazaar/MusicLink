@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yazaar | MusicLink</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+    <header>
+        <h1>MusicLink</h1>
+    </header>
+    <div class="flexCenter pushDown">
+        <h2>Multi source compatible music overlay!</h2>
+        <iframe src="/MusicLink/overlay/preview?previewmode=true" frameborder="0" id="overlayPreview" class="pushDown"></iframe>
+        <h1 class="pushDown2x">Get started today!</h1>
+        <ol class="center">
+            <li>Find a supported source</li>
+            <li>Generate your key and URL underneath</li>
+            <li>Paste the URL in OBS, begin with a width of 400 and a height of 100 then modify to your preference</li>
+        </ol>
+        <h1 class="pushDown2x">Generate key and URL:</h1>
+        <input type="text" id="selectedKey" class="pushDown" placeholder="select key">
+        <div id="randomKey" class="pushDown">Random key</div>
+        <div id="results" class="center pushDown">
+            <h3>Key:</h3>
+            <p id="key"></p>
+            <h3>URL:</h3>
+            <a id="url"></a>
+        </div>
+    </div>
+    <script src="/static/js/index.js"></script>
+</body>
+</html>

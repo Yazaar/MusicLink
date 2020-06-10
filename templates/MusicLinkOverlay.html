@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Link</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/MusicLink.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="left">
+            <img src="/static/img/default.png" id="thumbnail">
+        </div>
+        <div id="right">
+            <p id="title">MusicLink</p>
+            <p id="author">Welcome to Yazaar MusicLink</p>
+        </div>
+        <div id="time"></div>
+    </div>
+    <script>
+        var room = '{{roomId}}';
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
+    <script src="/static/js/MusicLink.js"></script>
+</body>
+</html>
