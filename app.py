@@ -8,12 +8,16 @@ app.secret_key = os.environ.get('flaskAppSecret')
 
 sio = SocketIO(app)
 
-@app.route('/MusicLink', methods=['GET'])
+@app.route('/', methods=['GET'])
 def app_root():
+    return render_template('index.html')
+
+@app.route('/MusicLink', methods=['GET'])
+def app_MusicLink():
     return render_template('MusicLink.html')
 
 @app.route('/MusicLink/overlay/<roomId>', methods=['GET'])
-def app_MusicLink(roomId):
+def app_MusicLinkOverlay(roomId):
     return render_template('MusicLinkOverlay.html', roomId=roomId)
 
 @sio.on('bind_to_room')
