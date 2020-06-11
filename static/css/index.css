@@ -25,6 +25,10 @@ li {
     font-size: 1.2rem;
 }
 
+p {
+    font-size: 1.2rem;
+}
+
 #overlayPreview {
     max-height: 6rem;
     max-width: 24rem;
@@ -86,4 +90,42 @@ li {
 
 .pushDown2x {
     margin-top: 1rem;
+}
+
+.pushDown4x {
+    margin-top: 2rem;
+}
+
+#HTMLAgentConfigs {
+    width: 60rem;
+    max-width: 90vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.configBTN {
+    background: rgba(0, 0, 0, .3);
+    border: #000000 solid .1rem;
+    border-radius: .5rem;
+    padding: .25rem .5rem;
+    margin: .25rem;
+    user-select: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.configBTN:hover {
+    background: rgba(0, 0, 0, .5);
+}
+
+#HTMLAgentCopyResponse {
+    background: rgba(0, 0, 0, .5);
+    border: #000000 solid .1rem;
+    padding: .1rem .2rem;
+    border-radius: .5rem;
+    user-select: none;
+    font-size: .75rem;
+    color: #00ff00;
+    opacity: 0;
 }

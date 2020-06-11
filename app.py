@@ -16,11 +16,6 @@ def app_root():
 def app_MusicLink(roomId):
     return render_template('MusicLinkOverlay.html', roomId=roomId)
 
-@sio.on('connect')
-def sio_connect():
-    print('user connected!')
-    sio.emit('message', 'welcome to the socketIO connection', room=request.sid)
-
 @sio.on('bind_to_room')
 def sio_bind_to_room(data=''):
     join_room(data)
