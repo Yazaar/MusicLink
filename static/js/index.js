@@ -6,7 +6,8 @@
     var HTMLAgentCopy = document.querySelector('#HTMLAgentCopyResponse');
 
     var HTMLAgentConfigs = {
-        youtube: {"elements":[{"name":"title","path":"#info-contents .title","type":"text"},{"name":"author","path":"#upload-info #channel-name a","type":"text"},{"name":"totalTime","path":"video","type":"playerduration"},{"name":"currentTime","path":"video","type":"playertime"},{"name":"YTthumbnail","property":"v","type":"URLParam"}],"name":"YouTube","responseFormat":"","responseFormatDummy":"","website":"www.youtube.com/watch"}
+        youtube: {"elements":[{"name":"title","path":"#info-contents .title","type":"text"},{"name":"author","path":"#upload-info #channel-name a","type":"text"},{"name":"totalTime","path":"video","type":"playerduration"},{"name":"currentTime","path":"video","type":"playertime"},{"name":"YTthumbnail","property":"v","type":"URLParam"}],"name":"YouTube","responseFormat":"","responseFormatDummy":"","website":"www.youtube.com/watch"},
+        soundcloud: {"elements":[{"name":"title","path":".playbackSoundBadge__title a span:nth-child(2)","type":"text"},{"name":"author","path":".playbackSoundBadge__titleContextContainer a","type":"text"},{"name":"totalTime","path":".playbackTimeline__progressBackground","property":"width","type":"cssprocessed"},{"name":"currentTime","path":".playbackTimeline__progressBar","property":"width","type":"cssprocessed"},{"name":"CSSURLthumbnail","path":".playbackSoundBadge div.image span","property":"background-image","type":"cssstyle"}],"name":"SoundCloud","responseFormat":"","responseFormatDummy":"","website":"soundcloud.com"}
     };
 
     var defaultKeyValues = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
