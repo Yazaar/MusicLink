@@ -41,6 +41,12 @@
                 currentAuthor = data.author;
                 refreshTicker(author);
             }
+            if (data.CSSURLthumbnail) {
+                var processedThumbnail = data.CSSURLthumbnail.match(/url\("(.*)"\)/);
+                if (processedThumbnail !== null) {
+                    data.thumbnailUrl = processedThumbnail[1];
+                }
+            }
             if (data.YTthumbnail && data.YTthumbnail !== currentThumbnail) {
                 changes = true;
                 thumbnail.src = 'https://img.youtube.com/vi/' + data.YTthumbnail + '/default.jpg';
