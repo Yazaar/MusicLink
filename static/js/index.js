@@ -55,7 +55,7 @@
             if (HTMLAgentConfigs[site] === undefined) {
                 return;
             }
-            var selectedConfig = HTMLAgentConfigs[site];
+            var selectedConfig = JSON.parse(JSON.stringify(HTMLAgentConfigs[site]));
             if (lastValidValue === '') {
                 selectedConfig.elements.unshift({"name":"roomId","type":"fixedValue","value":generateKey()});
             } else {
