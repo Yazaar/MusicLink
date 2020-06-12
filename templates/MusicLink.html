@@ -34,9 +34,18 @@
         </div>
         <div class="pushDown2x flexCenter">
             <h1 class="center">Custom service:</h1>
-            <p>To use a custom service check out my <a href="https://chrome.google.com/webstore/detail/html-agent/lbcelgpefmbllnhhlbgpkompbhmfblpi">chrome extension</a> to create custom configurations for any website!</p>
+            <p>To use a custom service check out my <a href="https://chrome.google.com/webstore/detail/html-agent/lbcelgpefmbllnhhlbgpkompbhmfblpi" target="_blank" rel="noopener noreferrer">chrome extension</a> to create custom configurations for any website!</p>
+            <ol class="center">
+                <li>Install my chrome extension <a href="https://chrome.google.com/webstore/detail/html-agent/lbcelgpefmbllnhhlbgpkompbhmfblpi" target="_blank" rel="noopener noreferrer">here</a></li>
+                <li>Set the SocketIO event to overlayUpdate</li>
+                <li>Set the SocketIO host to <a href="https://yazaar.herokuapp.com" target="_blank" rel="noopener noreferrer">https://yazaar.herokuapp.com</a></li>
+                <li>Hit connect and make sure it connects successfully</li>
+                <li>Select a room id above</li>
+                <li>Add a browser source to your recording/streaming software with the generated URL, would recommend width 400 height 100 but modify to your preference</li>
+                <li>Copy one of the imports underneath and paste it in the import preset field, then hit import (or create your own)</li>
+                <li>Make sure the status is ON and go to the tab you would like to capture, then hit inject current tab (keep auto inject OFF)</li>
+            </ol>
             <h2 class="pushDown">Imports for the chrome extension:</h2>
-            <p class="center">click to copy the import configuration<br>tip: select room id first</p>
             <p id="HTMLAgentCopyResponse" class="pushDown">COPY COMPLETE</p>
             <div id="HTMLAgentConfigs">
                 <div class="configBTN" data-site="youtube">YouTube.com</div>
