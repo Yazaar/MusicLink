@@ -29,31 +29,37 @@
     
         s.on('overlayUpdate', function(data){
             var changes = false;
-            if (data.title && data.title !== currentTitle) {
+            if (typeof data.title === 'string' && data.title !== currentTitle) {
                 changes = true;
                 title.innerText = data.title;
                 currentTitle = data.title;
                 refreshTicker(title);
             }
-            if (data.author && data.author !== currentAuthor) {
+            if (typeof data.author === 'string' && data.author !== currentAuthor) {
                 changes = true;
                 author.innerText = data.author;
                 currentAuthor = data.author;
                 refreshTicker(author);
             }
-            if (data.CSSURLthumbnail) {
+            if (typeof data.CSSURLthumbnail === 'string') {
                 var processedThumbnail = data.CSSURLthumbnail.match(/url\("(.*)"\)/);
                 if (processedThumbnail !== null) {
                     data.thumbnailUrl = processedThumbnail[1];
                 }
             }
-            if (data.YTthumbnail && data.YTthumbnail !== currentThumbnail) {
+            if (typeof data.YTthumbnail === 'string') {
+                data.thumbnailPrefix = 'https://img.youtube.com/vi/';
+                data.thumbnailSuffix = '/default.jpg';
+            }
+            if (typeof data.thumbnailPrefix === 'string' && typeof data.thumbnailUrl === 'string') {
+                data.thumbnailUrl = data.thumbnailPrefix + data.thumbnailUrl;
+            }
+            if (typeof data.thumbnailSuffix === 'string' && typeof data.thumbnailUrl === 'string') {
+                data.thumbnailUrl = data.thumbnailUrl + data.thumbnailSuffix;
+            }
+            if (typeof data.thumbnailUrl === 'string' && data.thumbnailUrl !== currentThumbnail) {
                 changes = true;
-                thumbnail.src = 'https://img.youtube.com/vi/' + data.YTthumbnail + '/default.jpg';
-                currentThumbnail = data.YTthumbnail;
-            } else if (data.thumbnailUrl && data.thumbnailUrl !== currentThumbnail) {
-                changes = true;
-                thumbnail.src = data.thumbnailUrl;
+                thumbnail.src = thumbnailPrefix + data.thumbnailUrl + thumbnailSuffix;
                 currentThumbnail = data.thumbnailUrl;
             }
             if (changes === true) {

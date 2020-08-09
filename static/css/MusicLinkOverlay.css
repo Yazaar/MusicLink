@@ -37,13 +37,13 @@
 }
 
 #title {
-    font-size: 38vh;
+    font-size: 33vh;
     white-space: nowrap;
     display: inline-block;
 }
 
 #author {
-    font-size: 25vh;
+    font-size: 30vh;
     white-space: nowrap;
     display: inline-block;
 }
