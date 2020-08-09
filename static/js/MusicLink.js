@@ -58,9 +58,9 @@
             }
             var selectedConfig = JSON.parse(JSON.stringify(HTMLAgentConfigs[site]));
             if (lastValidValue === '') {
-                selectedConfig.elements.unshift({"name":"roomId","type":"fixedValue","value":generateKey()});
+                selectedConfig.elements.unshift({"name":"roomId","type":"fixedValue","argument":generateKey()});
             } else {
-                selectedConfig.elements.unshift({"name":"roomId","type":"fixedValue","value":lastValidValue});
+                selectedConfig.elements.unshift({"name":"roomId","type":"fixedValue","argument":lastValidValue});
             }
 
             var textarea = document.createElement('textarea');
