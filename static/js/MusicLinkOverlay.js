@@ -60,7 +60,7 @@
             }
             if (typeof data.thumbnailUrl === 'string' && data.thumbnailUrl !== currentThumbnail) {
                 changes = true;
-                thumbnail.src = thumbnailPrefix + data.thumbnailUrl + thumbnailSuffix;
+                thumbnail.src = data.thumbnailUrl;
                 currentThumbnail = data.thumbnailUrl;
             }
             if (changes === true) {
