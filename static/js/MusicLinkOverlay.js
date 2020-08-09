@@ -50,6 +50,7 @@
             if (typeof data.YTthumbnail === 'string') {
                 data.thumbnailPrefix = 'https://img.youtube.com/vi/';
                 data.thumbnailSuffix = '/default.jpg';
+                data.thumbnailUrl = data.YTthumbnail;
             }
             if (typeof data.thumbnailPrefix === 'string' && typeof data.thumbnailUrl === 'string') {
                 data.thumbnailUrl = data.thumbnailPrefix + data.thumbnailUrl;
