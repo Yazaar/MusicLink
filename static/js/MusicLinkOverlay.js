@@ -10,6 +10,15 @@
         author: false
     };
 
+    var timeAgent = {
+        currentTime: null,
+        totalTime: null,
+        timePerSecond: null,
+        timeObject: null,
+        ticker: false,
+        paused: false
+    }
+
     var currentTitle = title.innerText;
     var currentAuthor = author.innerText;
     var currentThumbnail = thumbnail.src;
@@ -29,6 +38,11 @@
     
         s.on('overlayUpdate', function(data){
             var changes = false;
+            if (data.paused === true) {
+                timeAgent.paused = true;
+            } else {
+                timeAgent.paused = false;
+            }
             if (typeof data.title === 'string' && data.title !== currentTitle) {
                 changes = true;
                 title.innerText = data.title;
@@ -66,8 +80,21 @@
             if (changes === true) {
                 time.style.background = generateRGB();
             }
-            if (data.currentTime && data.totalTime) {
-                data.timePercentage = (parseFloat(data.currentTime) / parseFloat(data.totalTime)) * 100;
+            if (typeof data.currentTime === 'number' && typeof data.totalTime === 'number' && isNaN(data.currentTime) === false && isNaN(data.totalTime) === false) {
+                if (typeof data.timePerSecond === 'number' && isNaN(data.timePerSecond) === false) {
+                    timeAgent.timeObject = new Date();
+                    timeAgent.currentTime = data.currentTime;
+                    timeAgent.totalTime = data.totalTime;
+                    timeAgent.timePerSecond = data.timePerSecond;
+                    if (timeAgent.paused === true) {
+                        data.timePercentage = (data.currentTime / data.totalTime) * 100;
+                    }
+                    if (timeAgent.ticker === false) {
+                        timeAgent.ticker = setInterval(smartDuration, 500);
+                    }
+                } else {
+                    data.timePercentage = (data.currentTime / data.totalTime) * 100;
+                }
             }
             if (typeof data.timePercentage === 'number') {
                 time.style.width = data.timePercentage + '%';
@@ -101,6 +128,19 @@
             }
         }
         return 'rgb(' + RGBValues[0] + ', ' + RGBValues[1] + ', ' + RGBValues[2] +')';
+    }
+
+    function smartDuration() {
+        if (timeAgent.currentTime === null || timeAgent.totalTime === null || timeAgent.timePerSecond === null || timeAgent.timeObject === null || timeAgent.paused === true) {
+            return;
+        }
+        var cTime = new Date();
+        timeAgent.currentTime += ((cTime - timeAgent.timeObject) / 1000) * timeAgent.timePerSecond;
+        if (timeAgent.currentTime > timeAgent.totalTime) {
+            timeAgent.currentTime = timeAgent.totalTime;
+        }
+        timeAgent.timeObject = cTime;
+        time.style.width = ((timeAgent.currentTime / timeAgent.totalTime)*100) + '%';
     }
 
     function refreshTicker(element){
