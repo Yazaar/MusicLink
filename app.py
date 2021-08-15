@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 app.secret_key = os.environ.get('flaskAppSecret')
 
-sio = SocketIO(app)
+sio = SocketIO(app, cors_allowed_origins='*')
 
 @app.route('/', methods=['GET'])
 def app_root():
