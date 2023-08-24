@@ -81,4 +81,10 @@
             }, 1);
         });
     }
+
+    var domainLinks = document.querySelectorAll('#domainLink');
+    for (var i = 0; i < domainLinks.length; i++) {
+        domainLinks[i].innerText = window.location.origin;
+        domainLinks[i].href = window.location.origin;
+    }
 })();
