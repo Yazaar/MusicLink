@@ -1,5 +1,5 @@
-from flask import Flask, request, render_template
-from flask_socketio import SocketIO, join_room, rooms
+from flask import Flask, request, render_template, redirect
+from flask_socketio import SocketIO, join_room
 import os
 
 app = Flask(__name__)
@@ -9,14 +9,14 @@ app.secret_key = os.environ.get('flaskAppSecret')
 sio = SocketIO(app, cors_allowed_origins='*')
 
 @app.route('/', methods=['GET'])
-def app_root():
-    return render_template('index.html')
-
-@app.route('/MusicLink', methods=['GET'])
 def app_MusicLink():
     return render_template('MusicLink.html')
 
-@app.route('/MusicLink/overlay/<roomId>', methods=['GET'])
+@app.route('/static/js/socket.io.js', methods=['GET'])
+def app_getSIO():
+    return redirect('https://cdn.socket.io/4.7.2/socket.io.min.js', 301)
+
+@app.route('/overlay/<roomId>', methods=['GET'])
 def app_MusicLinkOverlay(roomId):
     return render_template('MusicLinkOverlay.html', roomId=roomId)
 
@@ -31,4 +31,4 @@ def sio_overlayUpdate(data=''):
         return
     sio.emit('overlayUpdate', data, room=data['roomId'])
 
-#sio.run(app, port=8080)
+sio.run(app, port=8080)

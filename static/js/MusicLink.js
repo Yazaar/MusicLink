@@ -26,7 +26,7 @@
             keyInput.value = lastValidValue;
             return;
         }
-        var href = window.location.origin + '/MusicLink/overlay/' + newValue;
+        var href = window.location.origin + '/overlay/' + newValue;
         url.href = href;
         url.innerText = href;
         key.innerText = newValue;
