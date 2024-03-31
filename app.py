@@ -14,7 +14,7 @@ def app_MusicLink():
 
 @app.route('/static/js/socket.io.js', methods=['GET'])
 def app_getSIO():
-    return redirect('https://cdn.socket.io/4.7.2/socket.io.min.js', 301)
+    return redirect('https://cdn.socket.io/4.7.2/socket.io.min.js', 302)
 
 @app.route('/overlay/<roomId>', methods=['GET'])
 def app_MusicLinkOverlay(roomId):
